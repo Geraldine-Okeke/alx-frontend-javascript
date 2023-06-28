@@ -3,9 +3,11 @@ export default function iterateThroughObject(reportWithIterator) {
   const employeeNames = [];
 
   for (const department in allEmployees) {
-    const employees = allEmployees[department];
-    employeeNames.push(...employees);
+    if (Object.prototype.hasOwnProperty.call(allEmployees, department)) {
+      const employees = allEmployees[department];
+      employeeNames.push(...employees);
+    }
   }
 
-  return employeeNames.join(" | ");
+  return employeeNames.join('|');
 }
