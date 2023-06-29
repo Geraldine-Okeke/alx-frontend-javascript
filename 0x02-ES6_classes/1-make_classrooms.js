@@ -1,4 +1,3 @@
-/* eslint-disable */
 import ClassRoom from './0-classroom.js';
 
 function initializeRooms() {
@@ -8,3 +7,6 @@ function initializeRooms() {
 
   return [room1, room2, room3];
 }
+
+export default initializeRooms;
+
