@@ -1,4 +1,5 @@
 class HolbertonCourse {
+  /* eslint-disable */
   constructor(name, length, students) {
     this._name = '';
     this._length = 0;
