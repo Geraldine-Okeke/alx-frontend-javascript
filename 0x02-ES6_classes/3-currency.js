@@ -1,36 +1,45 @@
-class Currency {
+export default class Currency {
+  /* eslint-disable */
   constructor(code, name) {
-    this._code = code;
-    this._name = name;
+    if (typeof code !== 'string') {
+      throw TypeError('Code must be String ');
+    } else {
+      this._code = code;
+    }
+    if (typeof name !== 'string') {
+      throw TypeError('name must be a string');
+    } else {
+      this._name = name;
+    }
   }
-
+  /** 
+   * Setter and Getter Methods
+   */
   get code() {
     return this._code;
   }
-
-  set code(newCode) {
-    if (typeof newCode === 'string') {
-      this._code = newCode;
-    } else {
-      throw new TypeError('Code must be a string');
-    }
-  }
-
   get name() {
     return this._name;
   }
-
-  set name(newName) {
-    if (typeof newName === 'string') {
-      this._name = newName;
+  set code(Code) {
+    if (typeof Code !== 'string') {
+      throw TypeError('Code should be a string')
     } else {
-      throw new TypeError('Name must be a string');
+      this._code = Code;
     }
   }
-
+  set name(Name) {
+    if (typeof Name !== 'string') {
+      throw TypeError('Name should be a string');
+    } else {
+      this._name = Name;
+    }
+  }
+  /**
+   * 
+   * @returns - Implement a method named displayFullCurrency that will return the attributes in the following format name (code).
+   */
   displayFullCurrency() {
     return `${this._name} (${this._code})`;
   }
 }
-
-export default Currency;

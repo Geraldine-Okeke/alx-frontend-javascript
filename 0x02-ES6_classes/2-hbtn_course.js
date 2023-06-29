@@ -1,45 +1,57 @@
-class HolbertonCourse {
+export default class HolbertonCourse {
+  /* eslint-disable */
   constructor(name, length, students) {
-    this._name = typeof name === 'string' ? name : '';
-    this._length = typeof length === 'number' ? length : 0;
-    this._students = Array.isArray(students) ? students : [];
+    if (typeof name === 'string') {
+      this._name = name;
+    } else {
+      throw TypeError('Name must be a string');
+    }
+     
+    if (typeof length === 'number') {
+      this._length = length;
+    } else {
+      throw TypeError('Length must be a number');
+    }
+
+    if (!Array.isArray(students) && students.every((i) => typeof i !== 'string')) {
+      throw TypeError('Students must be an array of strings');
+    } else {
+      this._students = students;
+    }
   }
 
   get name() {
     return this._name;
   }
 
-  set name(newName) {
-    if (typeof newName === 'string') {
-      this._name = newName;
-    } else {
-      throw new TypeError('Name must be a string');
-    }
-  }
-
   get length() {
     return this._length;
-  }
-
-  set length(newLength) {
-    if (typeof newLength === 'number') {
-      this._length = newLength;
-    } else {
-      throw new TypeError('Length must be a number');
-    }
   }
 
   get students() {
     return this._students;
   }
 
-  set students(newStudents) {
-    if (Array.isArray(newStudents)) {
-      this._students = newStudents;
+  set name(Name) {
+    if (typeof Name !== 'string') {
+      throw TypeError('Name must be a string');
     } else {
-      throw new TypeError('Students must be an array');
+      this._name = Name;	  
     }
   }
-}
 
-export default HolbertonCourse;
+  set length(Length) {
+    if (typeof Length !== 'number') {
+      throw TypeError('Length must be a number');
+    } else {
+      this._length = Length;
+    }
+  }
+
+  set students(Students) {
+    if (!Array.isArray(Students) && Students.every((i) => typeof i !== 'string')) {
+      throw TypeError('Students must be an array of strings');
+    }
+    this._students = Students;
+  }
+}

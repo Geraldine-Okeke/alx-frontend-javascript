@@ -1,17 +1,16 @@
-class Building {
-  constructor(sqft) {
+export default class Building {
+  /* eslint-disable */
+  constructor(sqft = 0) {
+    /* eslint-disable */
+    if (this.constructor !== Building
+      && typeof this.evacuationWarningMessage !== 'function') {
+      throw new Error('Class extending Building must override evacuationWarningMessage');
+    }
+
     this._sqft = sqft;
   }
 
   get sqft() {
     return this._sqft;
   }
-
-  evacuationWarningMessage() {
-    // eslint-disable-next-line no-unused-vars
-    const _ = this.sqft; // Referencing a property without using it
-    throw new Error('Class extending Building must override evacuationWarningMessage');
-  }
 }
-
-export default Building;
