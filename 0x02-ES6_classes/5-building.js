@@ -1,4 +1,5 @@
 /* eslint-disable */
+
 class Building {
   constructor(sqft) {
     this._sqft = sqft;
@@ -14,3 +15,4 @@ class Building {
 }
 
 export default Building;
+
