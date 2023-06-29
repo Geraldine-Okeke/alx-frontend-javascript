@@ -1,5 +1,4 @@
 class Building {
-  /* eslint-disable */
   constructor(sqft) {
     this._sqft = sqft;
   }
@@ -9,9 +8,8 @@ class Building {
   }
 
   evacuationWarningMessage() {
-    throw new Error('Class extending Building must override evacuationWarningMessage');
+    throw new Error("Class extending Building must override evacuationWarningMessage");
   }
 }
 
 export default Building;
-
